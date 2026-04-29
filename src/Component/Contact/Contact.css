@@ -1,0 +1,220 @@
+.contact-section {
+  padding: 5rem 5vw;
+  background-color: #0a0f1e; /* Theme Navy */
+  color: #f5f0e8; /* Theme White */
+  font-family: 'DM Sans', sans-serif;
+  border-top: 1px solid rgba(201, 168, 76, 0.25);
+}
+
+.contact-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+.contact-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.contact-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #c9a84c; /* Gold */
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.contact-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: #ffffff;
+}
+
+.contact-line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+  margin: 0 auto 1.5rem;
+}
+
+.contact-header p {
+  color: rgba(245, 240, 232, 0.7);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Grid Layout */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 4rem;
+  align-items: flex-start;
+}
+
+/* Left Side: Info Cards */
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.info-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  background: #111827; /* Navy Mid */
+  padding: 1.5rem;
+  border: 1px solid rgba(201, 168, 76, 0.15);
+  border-radius: 8px;
+  transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.info-card:hover {
+  border-color: #c9a84c;
+  transform: translateX(5px);
+}
+
+.info-icon {
+  font-size: 1.8rem;
+  background: rgba(201, 168, 76, 0.13); /* Gold Dim */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+}
+
+.info-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.3rem;
+  margin: 0 0 0.5rem 0;
+  color: #e2c47a; /* Gold Light */
+}
+
+.info-card p {
+  margin: 0;
+  font-size: 0.9rem;
+  color: rgba(245, 240, 232, 0.8);
+  line-height: 1.6;
+}
+
+.info-card a {
+  color: rgba(245, 240, 232, 0.8);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.info-card a:hover {
+  color: #c9a84c;
+}
+
+/* Right Side: Form */
+.contact-form-wrapper {
+  background: #131c30; /* Navy Card */
+  padding: 3rem;
+  border: 1px solid rgba(201, 168, 76, 0.25);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  width: 100%;
+  background: #0a0f1e;
+  border: 1px solid rgba(201, 168, 76, 0.3);
+  color: #f5f0e8;
+  padding: 1rem 1.2rem;
+  border-radius: 6px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.95rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #c9a84c;
+  box-shadow: 0 0 10px rgba(201, 168, 76, 0.2);
+}
+
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(245, 240, 232, 0.4);
+}
+
+/* Fix dropdown option colors in dark mode */
+.contact-form select option {
+  background: #0a0f1e;
+  color: #f5f0e8;
+}
+
+.btn-submit {
+  width: 100%;
+  padding: 1rem;
+  background: linear-gradient(135deg, #c9a84c, #a8832e);
+  color: #0a0f1e;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.btn-submit:hover {
+  box-shadow: 0 8px 24px rgba(201, 168, 76, 0.4);
+  transform: translateY(-2px);
+}
+
+.success-message {
+  text-align: center;
+  padding: 4rem 2rem;
+  border: 1px dashed #27AE60;
+  border-radius: 8px;
+  background: rgba(39, 174, 96, 0.05);
+}
+
+.success-message h3 {
+  color: #27AE60;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .contact-form-wrapper {
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+}

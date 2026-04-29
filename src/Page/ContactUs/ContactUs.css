@@ -1,0 +1,492 @@
+/* ============================================================
+   DHRUV INVESTMENTS — PREMIUM CONTACT PAGE
+   Aesthetic: Luxury Financial | Navy × Gold Split Layout
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --navy:        #0a0f1e;
+  --navy-mid:    #111827;
+  --navy-card:   #131c30;
+  --navy-hover:  #1a2540;
+  --gold:        #c9a84c;
+  --gold-light:  #e2c47a;
+  --gold-dim:    rgba(201, 168, 76, 0.12);
+  --gold-border: rgba(201, 168, 76, 0.25);
+  --white:       #f5f0e8;
+  --white-dim:   rgba(245, 240, 232, 0.62);
+  --error:       #e05c5c;
+  --success:     #4caf87;
+  --tr:          0.32s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Page Shell ──────────────────────────────────────────────── */
+.contact-page {
+  min-height: 100vh;
+  background: var(--navy);
+  font-family: 'DM Sans', sans-serif;
+  color: var(--white);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Hero Banner ─────────────────────────────────────────────── */
+.contact-hero {
+  position: relative;
+  padding: 5.5rem 5vw 4.5rem;
+  overflow: hidden;
+  border-bottom: 1px solid var(--gold-border);
+}
+.contact-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url('https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=1600&q=75&auto=format&fit=crop')
+    center / cover no-repeat;
+  opacity: 0.07;
+}
+.contact-hero::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+.hero-inner {
+  position: relative;
+  z-index: 2;
+  max-width: 640px;
+  animation: fadeUp 0.9s 0.1s both;
+}
+.hero-eyebrow {
+  font-size: 0.68rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 1rem;
+}
+.contact-hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 4.5vw, 3.6rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.01em;
+  margin-bottom: 0.9rem;
+}
+.contact-hero h1 em {
+  font-style: italic;
+  color: var(--gold-light);
+}
+.hero-rule {
+  width: 52px; height: 1.5px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  margin: 1.1rem 0;
+  border-radius: 2px;
+}
+.contact-hero p {
+  font-size: 0.94rem;
+  font-weight: 300;
+  color: var(--white-dim);
+  line-height: 1.85;
+  max-width: 460px;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Main Split Layout ───────────────────────────────────────── */
+.contact-body {
+  display: grid;
+  grid-template-columns: 1fr 1.45fr;
+  gap: 0;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 4rem 5vw 5rem;
+}
+
+/* ── Left Panel — Info ───────────────────────────────────────── */
+.contact-info {
+  padding-right: 4rem;
+  border-right: 1px solid var(--gold-border);
+  animation: fadeUp 0.9s 0.2s both;
+}
+.panel-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.26em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 0.8rem;
+}
+.contact-info h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+.info-rule {
+  width: 42px; height: 1.5px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+  margin-bottom: 1.4rem;
+  border-radius: 2px;
+}
+.contact-info > p {
+  font-size: 0.86rem;
+  color: var(--white-dim);
+  line-height: 1.85;
+  margin-bottom: 2.2rem;
+}
+
+/* Contact items */
+.contact-items {
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+  margin-bottom: 2.4rem;
+}
+.contact-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.1rem 1.2rem;
+  background: var(--navy-card);
+  border: 1px solid var(--gold-border);
+  border-radius: 7px;
+  transition: border-color var(--tr), background var(--tr);
+  text-decoration: none;
+}
+.contact-item:hover {
+  border-color: var(--gold);
+  background: var(--navy-hover);
+}
+.ci-icon {
+  width: 40px; height: 40px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-border);
+  border-radius: 6px;
+  font-size: 1.1rem;
+  flex-shrink: 0;
+  transition: background var(--tr);
+}
+.contact-item:hover .ci-icon {
+  background: rgba(201, 168, 76, 0.22);
+}
+.ci-content {}
+.ci-label {
+  font-size: 0.65rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: block;
+  margin-bottom: 2px;
+}
+.ci-value {
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--white);
+}
+
+/* Availability badge */
+.availability {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0.9rem 1.2rem;
+  border: 1px solid var(--gold-border);
+  border-radius: 7px;
+  background: var(--gold-dim);
+  margin-bottom: 2rem;
+}
+.avail-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: var(--success);
+  flex-shrink: 0;
+  box-shadow: 0 0 10px rgba(76, 175, 135, 0.6);
+  animation: pulse 2s infinite;
+}
+@keyframes pulse {
+  0%, 100% { box-shadow: 0 0 6px rgba(76, 175, 135, 0.5); }
+  50%       { box-shadow: 0 0 14px rgba(76, 175, 135, 0.9); }
+}
+.avail-text {
+  font-size: 0.78rem;
+  color: var(--white-dim);
+  line-height: 1.5;
+}
+.avail-text strong { color: var(--white); font-weight: 500; }
+
+/* Social strip */
+.social-strip {
+  display: flex;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+}
+.social-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 0.45rem 1rem;
+  background: transparent;
+  color: var(--white-dim);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  font-size: 0.75rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: background var(--tr), color var(--tr), border-color var(--tr);
+}
+.social-btn:hover {
+  background: var(--gold-dim);
+  color: var(--gold-light);
+  border-color: var(--gold);
+}
+
+/* ── Right Panel — Form ──────────────────────────────────────── */
+.contact-form-wrap {
+  padding-left: 4rem;
+  animation: fadeUp 0.9s 0.35s both;
+}
+.form-heading {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 0.5rem;
+}
+.form-sub {
+  font-size: 0.83rem;
+  color: var(--white-dim);
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+
+/* Form layout */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+}
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.1rem;
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.form-group label {
+  font-size: 0.68rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.form-group input,
+.form-group select,
+.form-group textarea {
+  background: var(--navy-card);
+  border: 1px solid var(--gold-border);
+  border-radius: 5px;
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 300;
+  padding: 0.75rem 1rem;
+  outline: none;
+  transition: border-color var(--tr), background var(--tr), box-shadow var(--tr);
+  width: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+}
+.form-group select {
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23c9a84c' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 2.5rem;
+  cursor: pointer;
+}
+.form-group select option {
+  background: var(--navy-mid);
+  color: var(--white);
+}
+.form-group textarea {
+  resize: vertical;
+  min-height: 110px;
+}
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+  color: rgba(245, 240, 232, 0.28);
+}
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+  border-color: var(--gold);
+  background: var(--navy-hover);
+  box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.1);
+}
+.form-group input.error,
+.form-group select.error,
+.form-group textarea.error {
+  border-color: var(--error);
+}
+.field-error {
+  font-size: 0.7rem;
+  color: var(--error);
+  letter-spacing: 0.04em;
+  display: none;
+}
+.field-error.visible { display: block; }
+
+/* Checkbox consent */
+.consent-row {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+.consent-row input[type="checkbox"] {
+  width: 16px; height: 16px;
+  accent-color: var(--gold);
+  margin-top: 3px;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+.consent-row span {
+  font-size: 0.76rem;
+  color: var(--white-dim);
+  line-height: 1.65;
+}
+
+/* Submit button */
+.submit-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 0.85rem 2.2rem;
+  background: linear-gradient(135deg, var(--gold), #a8832e);
+  color: var(--navy);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  transition: box-shadow var(--tr), transform var(--tr), opacity var(--tr);
+}
+.submit-btn:hover:not(:disabled) {
+  box-shadow: 0 8px 30px rgba(201, 168, 76, 0.42);
+  transform: translateY(-1px);
+}
+.submit-btn:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+}
+.submit-btn .btn-shimmer {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  opacity: 0;
+  transition: opacity var(--tr);
+}
+.submit-btn:hover:not(:disabled) .btn-shimmer { opacity: 1; }
+.submit-btn span { position: relative; z-index: 1; }
+
+/* Success state */
+.form-success {
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 3rem 2rem;
+  background: var(--navy-card);
+  border: 1px solid var(--gold-border);
+  border-radius: 10px;
+  gap: 1rem;
+}
+.form-success.visible { display: flex; }
+.success-icon {
+  width: 56px; height: 56px;
+  border-radius: 50%;
+  background: rgba(76, 175, 135, 0.15);
+  border: 1px solid rgba(76, 175, 135, 0.4);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem;
+}
+.form-success h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--white);
+}
+.form-success p {
+  font-size: 0.86rem;
+  color: var(--white-dim);
+  max-width: 320px;
+  line-height: 1.8;
+}
+
+/* ── Map Strip ────────────────────────────────────────────────── */
+.map-strip {
+  border-top: 1px solid var(--gold-border);
+  padding: 0 5vw 4rem;
+  max-width: 1280px;
+  margin: 0 auto;
+}
+.map-label {
+  font-size: 0.68rem;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.2rem;
+  display: block;
+  padding-top: 2.5rem;
+}
+.map-frame {
+  width: 100%;
+  height: 300px;
+  border-radius: 8px;
+  border: 1px solid var(--gold-border);
+  overflow: hidden;
+  filter: grayscale(0.3) brightness(0.85);
+  transition: filter var(--tr);
+}
+.map-frame:hover { filter: grayscale(0) brightness(1); }
+.map-frame iframe {
+  width: 100%; height: 100%;
+  border: none; display: block;
+}
+
+/* ── Responsive ───────────────────────────────────────────────── */
+@media (max-width: 960px) {
+  .contact-body {
+    grid-template-columns: 1fr;
+    padding: 3rem 5vw 4rem;
+  }
+  .contact-info {
+    padding-right: 0;
+    border-right: none;
+    border-bottom: 1px solid var(--gold-border);
+    padding-bottom: 2.5rem;
+    margin-bottom: 2.5rem;
+  }
+  .contact-form-wrap { padding-left: 0; }
+}
+
+@media (max-width: 560px) {
+  .form-row { grid-template-columns: 1fr; }
+  .contact-hero { padding: 4rem 5vw 3rem; }
+}

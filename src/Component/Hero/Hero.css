@@ -1,0 +1,399 @@
+/* ============================================================
+   DHRUV INVESTMENTS — PREMIUM HERO SECTION
+   Aesthetic: Luxury Financial | Cinematic Slideshow × Gold
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ── CSS Variables ─────────────────────────────────────────── */
+:root {
+  --navy:        #0a0f1e;
+  --navy-deep:   #060a14;
+  --gold:        #c9a84c;
+  --gold-light:  #e2c47a;
+  --gold-dim:    rgba(201, 168, 76, 0.18);
+  --gold-border: rgba(201, 168, 76, 0.3);
+  --white:       #f5f0e8;
+  --white-dim:   rgba(245, 240, 232, 0.72);
+  --slide-dur:   7s;
+  --fade-dur:    1.6s;
+}
+
+/* ── Hero Container ────────────────────────────────────────── */
+.hero-container {
+  position: relative;
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;
+  font-family: 'DM Sans', sans-serif;
+}
+
+/* ── Background Slideshow ──────────────────────────────────── */
+.hero-backgrounds {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.bg-img {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  opacity: 0;
+  transform: scale(1.06);
+  animation: bgSlide calc(var(--slide-dur) * 4) infinite;
+  will-change: opacity, transform;
+}
+
+/* Stagger each slide by --slide-dur */
+.bg-img-1 { animation-delay: 0s; }
+.bg-img-2 { animation-delay: var(--slide-dur); }
+.bg-img-3 { animation-delay: calc(var(--slide-dur) * 2); }
+.bg-img-4 { animation-delay: calc(var(--slide-dur) * 3); }
+
+/* Financial / wealth themed Unsplash images */
+.bg-img-1 {
+  background-image: url('../../assets/bg1.jpg');
+}
+.bg-img-2 {
+  background-image: url('../../assets/bg2.jpg');
+}
+.bg-img-3 {
+  background-image: url('../../assets/bg3.jpg');
+}
+.bg-img-4 {
+  background-image: url('../../assets/bg4.jpg');
+}
+
+@keyframes bgSlide {
+  0%   { opacity: 0;    transform: scale(1.06); }
+  4%   { opacity: 1;    transform: scale(1.06); }
+  22%  { opacity: 1;    transform: scale(1.0);  }
+  26%  { opacity: 0;    transform: scale(1.0);  }
+  100% { opacity: 0;    transform: scale(1.06); }
+}
+
+/* ── Dark Gradient Overlay ─────────────────────────────────── */
+.hero-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background:
+    linear-gradient(105deg,
+      rgba(6, 10, 20, 0.92) 0%,
+      rgba(6, 10, 20, 0.75) 55%,
+      rgba(6, 10, 20, 0.35) 100%
+    );
+}
+
+/* Gold vignette bottom */
+.hero-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: linear-gradient(
+    to top,
+    rgba(6, 10, 20, 0.85) 0%,
+    transparent 35%
+  );
+  pointer-events: none;
+}
+
+/* ── Decorative Gold Line ──────────────────────────────────── */
+.hero-container .gold-line {
+  position: absolute;
+  top: 0; bottom: 0;
+  left: 44%;
+  width: 1px;
+  background: linear-gradient(to bottom, transparent, var(--gold-border), transparent);
+  z-index: 2;
+  opacity: 0.4;
+}
+
+/* ── Hero Content ──────────────────────────────────────────── */
+.hero-content {
+  position: relative;
+  z-index: 3;
+  padding: 0 5vw;
+  max-width: 780px;
+  animation: contentReveal 1.2s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+@keyframes contentReveal {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Eyebrow label */
+.hero-content::before {
+  content: '— Trusted Financial Planning';
+  display: block;
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.25rem;
+  animation: contentReveal 1.2s 0.1s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* ── Typography ────────────────────────────────────────────── */
+.hero-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.6rem, 5.5vw, 4.4rem);
+  font-weight: 600;
+  line-height: 1.12;
+  color: var(--white);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+  animation: contentReveal 1.2s 0.2s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.highlight-text {
+  font-style: italic;
+  color: var(--gold-light);
+  position: relative;
+  display: inline-block;
+}
+
+/* Underline accent on highlight */
+.highlight-text::after {
+  content: '';
+  position: absolute;
+  bottom: -3px;
+  left: 0; right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, var(--gold), transparent);
+}
+
+.hero-subtitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(1rem, 2vw, 1.2rem);
+  font-weight: 300;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 1.5rem;
+  animation: contentReveal 1.2s 0.35s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.hero-description {
+  font-size: clamp(0.9rem, 1.5vw, 1.05rem);
+  font-weight: 300;
+  line-height: 1.8;
+  color: var(--white-dim);
+  max-width: 560px;
+  margin-bottom: 2.5rem;
+  animation: contentReveal 1.2s 0.5s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+/* ── Buttons ───────────────────────────────────────────────── */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  animation: contentReveal 1.2s 0.65s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.8rem 2rem;
+  background: linear-gradient(135deg, var(--gold), #a8832e);
+  color: var(--navy-deep);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 3px;
+  border: none;
+  position: relative;
+  overflow: hidden;
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, var(--gold-light), var(--gold));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.btn-primary span { position: relative; z-index: 1; }
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(201, 168, 76, 0.45);
+}
+.btn-primary:hover::before { opacity: 1; }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.8rem 2rem;
+  background: transparent;
+  color: var(--white);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.82rem;
+  font-weight: 400;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 3px;
+  border: 1px solid var(--gold-border);
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+.btn-secondary:hover {
+  background: var(--gold-dim);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* ── Slide Indicators ──────────────────────────────────────── */
+.slide-indicators {
+  position: absolute;
+  bottom: 5.5rem;
+  right: 5vw;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  animation: contentReveal 1.2s 0.8s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.slide-dot {
+  width: 2px;
+  height: 24px;
+  background: rgba(201, 168, 76, 0.25);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+}
+
+.slide-dot::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 100%;
+  background: var(--gold);
+  transform: scaleY(0);
+  transform-origin: top;
+  border-radius: 2px;
+}
+
+.slide-dot:nth-child(1)::after { animation: dotFill var(--slide-dur) 0s infinite linear; }
+.slide-dot:nth-child(2)::after { animation: dotFill var(--slide-dur) var(--slide-dur) infinite linear; }
+.slide-dot:nth-child(3)::after { animation: dotFill var(--slide-dur) calc(var(--slide-dur) * 2) infinite linear; }
+.slide-dot:nth-child(4)::after { animation: dotFill var(--slide-dur) calc(var(--slide-dur) * 3) infinite linear; }
+
+@keyframes dotFill {
+  0%   { transform: scaleY(0); opacity: 1; }
+  90%  { transform: scaleY(1); opacity: 1; }
+  100% { transform: scaleY(1); opacity: 0; }
+}
+
+/* ── Trust Banner ──────────────────────────────────────────── */
+.trust-banner {
+  position: absolute;
+  bottom: 0;
+  left: 0; right: 0;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  background: rgba(6, 10, 20, 0.75);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid var(--gold-border);
+  animation: contentReveal 1.2s 0.9s cubic-bezier(0.4, 0, 0.2, 1) both;
+}
+
+.trust-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 1.1rem 1rem;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+  border-right: 1px solid var(--gold-border);
+  transition: color 0.3s ease, background 0.3s ease;
+}
+.trust-item:last-child { border-right: none; }
+.trust-item:hover {
+  color: var(--gold-light);
+  background: var(--gold-dim);
+}
+
+/* Checkmark styling */
+.trust-item::before {
+  content: '✦';
+  color: var(--gold);
+  font-size: 0.6rem;
+  flex-shrink: 0;
+}
+
+/* ── Mobile Responsive ─────────────────────────────────────── */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 0 6vw;
+    max-width: 100%;
+  }
+
+  .hero-container::before {
+    background: linear-gradient(
+      180deg,
+      rgba(6, 10, 20, 0.88) 0%,
+      rgba(6, 10, 20, 0.78) 100%
+    );
+  }
+
+  .hero-title { font-size: clamp(2rem, 8vw, 3rem); }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    justify-content: center;
+    width: 100%;
+    max-width: 300px;
+  }
+
+  .slide-indicators { display: none; }
+
+  .trust-banner {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .trust-item {
+    width: 100%;
+    border-right: none;
+    border-bottom: 1px solid var(--gold-border);
+    padding: 0.8rem 1.5rem;
+    justify-content: flex-start;
+  }
+  .trust-item:last-child { border-bottom: none; }
+}
+
+@media (max-width: 480px) {
+  .hero-title { font-size: clamp(1.7rem, 7.5vw, 2.2rem); }
+  .hero-content::before { font-size: 0.65rem; }
+}

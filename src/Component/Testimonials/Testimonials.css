@@ -1,0 +1,135 @@
+.testimonials-section {
+  padding: 5rem 5vw;
+  background-color: #060a14; /* Slightly darker than the main navy for contrast */
+  color: #f5f0e8;
+  font-family: 'DM Sans', sans-serif;
+}
+
+.testi-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Header Styles */
+.testi-header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.testi-eyebrow {
+  font-size: 0.7rem;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  color: #c9a84c; /* Gold */
+  display: block;
+  margin-bottom: 1rem;
+}
+
+.testi-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 600;
+  margin: 0 0 1rem 0;
+  color: #ffffff;
+}
+
+.testi-line {
+  width: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #c9a84c, transparent);
+  margin: 0 auto 1.5rem;
+}
+
+.testi-header p {
+  color: rgba(245, 240, 232, 0.7);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.8;
+}
+
+/* Grid Layout */
+.testi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Individual Card */
+.testi-card {
+  background: #111827; /* Navy Mid */
+  border: 1px solid rgba(201, 168, 76, 0.15); /* Faint gold border */
+  border-radius: 8px;
+  padding: 2.5rem 2rem;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.testi-card:hover {
+  transform: translateY(-5px);
+  border-color: #c9a84c;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+}
+
+/* Stars */
+.stars {
+  color: #c9a84c; /* Gold stars */
+  font-size: 1.2rem;
+  letter-spacing: 2px;
+  margin-bottom: 1.5rem;
+}
+
+/* Feedback Text */
+.feedback-text {
+  font-size: 0.95rem;
+  line-height: 1.8;
+  color: rgba(245, 240, 232, 0.85);
+  font-style: italic;
+  flex-grow: 1; /* Pushes client info to the bottom evenly */
+  margin-bottom: 2rem;
+}
+
+/* Client Info at Bottom */
+.client-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 1.5rem;
+}
+
+.client-avatar {
+  width: 45px;
+  height: 45px;
+  background: linear-gradient(135deg, #c9a84c, #a8832e);
+  color: #0a0f1e;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.client-name {
+  margin: 0 0 0.2rem 0;
+  font-size: 1.05rem;
+  color: #ffffff;
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 600;
+}
+
+.client-role {
+  font-size: 0.75rem;
+  color: rgba(245, 240, 232, 0.5);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .testi-card {
+    padding: 2rem 1.5rem;
+  }
+}

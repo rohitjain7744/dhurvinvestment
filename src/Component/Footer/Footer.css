@@ -1,0 +1,334 @@
+/* ============================================================
+   DHRUV INVESTMENTS — PREMIUM FOOTER
+   Aesthetic: Luxury Financial | Navy × Gold Editorial Footer
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500&family=DM+Sans:wght@300;400;500&display=swap');
+
+:root {
+  --navy:        #0a0f1e;
+  --navy-mid:    #0d1424;
+  --navy-card:   #131c30;
+  --gold:        #c9a84c;
+  --gold-light:  #e2c47a;
+  --gold-dim:    rgba(201, 168, 76, 0.11);
+  --gold-border: rgba(201, 168, 76, 0.22);
+  --white:       #f5f0e8;
+  --white-dim:   rgba(245, 240, 232, 0.55);
+  --tr:          0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── Footer Shell ─────────────────────────────────────────── */
+.site-footer {
+  background: var(--navy-mid);
+  border-top: 1px solid var(--gold-border);
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient gold glow top-left */
+.site-footer::before {
+  content: '';
+  position: absolute;
+  top: -100px; left: -100px;
+  width: 500px; height: 400px;
+  background: radial-gradient(ellipse, rgba(201, 168, 76, 0.05) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+/* Gold pinstripe at very top */
+.site-footer::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+}
+
+/* ── CTA Band ─────────────────────────────────────────────── */
+.footer-cta-band {
+  border-bottom: 1px solid var(--gold-border);
+  padding: 3rem 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.footer-cta-text h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.4rem, 2.5vw, 2rem);
+  font-weight: 600;
+  color: var(--white);
+  line-height: 1.2;
+}
+.footer-cta-text p {
+  font-size: 0.84rem;
+  color: var(--white-dim);
+  margin-top: 0.3rem;
+  line-height: 1.65;
+}
+.footer-cta-actions {
+  display: flex;
+  gap: 0.75rem;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+}
+.fcta-btn-gold {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.65rem 1.6rem;
+  background: linear-gradient(135deg, var(--gold), #a8832e);
+  color: var(--navy);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 500;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: box-shadow var(--tr), transform var(--tr);
+}
+.fcta-btn-gold:hover {
+  box-shadow: 0 6px 24px rgba(201, 168, 76, 0.4);
+  transform: translateY(-1px);
+}
+.fcta-btn-outline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 0.65rem 1.4rem;
+  background: transparent;
+  color: var(--white-dim);
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  text-decoration: none;
+  border-radius: 3px;
+  border: 1px solid var(--gold-border);
+  transition: background var(--tr), color var(--tr), border-color var(--tr);
+}
+.fcta-btn-outline:hover {
+  background: var(--gold-dim);
+  color: var(--gold-light);
+  border-color: var(--gold);
+}
+
+/* ── Main Grid ────────────────────────────────────────────── */
+.footer-main {
+  display: grid;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 3rem;
+  padding: 3.5rem 5vw 3rem;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+
+/* ── Brand Column ─────────────────────────────────────────── */
+.footer-brand {}
+.brand-logo {
+  text-decoration: none;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  line-height: 1;
+  margin-bottom: 1.2rem;
+}
+.logo-main {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+.b-blue  { color: var(--white); }
+.b-gold  { color: var(--gold); font-size: 1.55rem; margin: 0 1px; }
+.logo-sub {
+  font-size: 0.52rem;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-top: 2px;
+  padding-left: 1px;
+  font-family: 'DM Sans', sans-serif;
+}
+.brand-tagline {
+  font-size: 0.84rem;
+  color: var(--white-dim);
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+  max-width: 280px;
+}
+.brand-contact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+  margin-bottom: 1.6rem;
+}
+.bcontact-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.82rem;
+  color: var(--white-dim);
+  text-decoration: none;
+  transition: color var(--tr);
+}
+.bcontact-item:hover { color: var(--gold-light); }
+.bcontact-icon {
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--gold-dim);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  transition: background var(--tr);
+}
+.bcontact-item:hover .bcontact-icon { background: rgba(201,168,76,0.22); }
+
+/* Socials */
+.social-row {
+  display: flex;
+  gap: 0.55rem;
+}
+.social-icon {
+  width: 34px; height: 34px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--navy-card);
+  border: 1px solid var(--gold-border);
+  border-radius: 4px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background var(--tr), border-color var(--tr), transform var(--tr);
+}
+.social-icon:hover {
+  background: var(--gold-dim);
+  border-color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* ── Link Columns ─────────────────────────────────────────── */
+.footer-col h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--white);
+  letter-spacing: 0.02em;
+  margin-bottom: 1.1rem;
+  position: relative;
+  padding-bottom: 0.7rem;
+}
+.footer-col h4::after {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0;
+  width: 28px; height: 1px;
+  background: var(--gold);
+  border-radius: 1px;
+}
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.footer-links li a {
+  font-size: 0.82rem;
+  color: var(--white-dim);
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: color var(--tr), padding-left var(--tr);
+}
+.footer-links li a::before {
+  content: '›';
+  color: var(--gold);
+  font-size: 0.9rem;
+  transition: transform var(--tr);
+}
+.footer-links li a:hover {
+  color: var(--gold-light);
+  padding-left: 4px;
+}
+.footer-links li a:hover::before {
+  transform: translateX(2px);
+}
+
+/* ── Certifications Bar ───────────────────────────────────── */
+.cert-bar {
+  border-top: 1px solid var(--gold-border);
+  padding: 1.5rem 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.cert-item {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.72rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--white-dim);
+}
+.cert-dot {
+  width: 6px; height: 6px;
+  border-radius: 50%;
+  background: var(--gold);
+  box-shadow: 0 0 6px rgba(201,168,76,0.5);
+  flex-shrink: 0;
+}
+
+/* ── Bottom Bar ───────────────────────────────────────────── */
+.footer-bottom {
+  border-top: 1px solid var(--gold-border);
+  padding: 1.2rem 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.footer-bottom p {
+  font-size: 0.74rem;
+  color: var(--white-dim);
+  letter-spacing: 0.04em;
+}
+.footer-bottom p span { color: var(--gold); }
+.footer-legal {
+  display: flex;
+  gap: 1.2rem;
+}
+.footer-legal a {
+  font-size: 0.72rem;
+  color: var(--white-dim);
+  text-decoration: none;
+  letter-spacing: 0.06em;
+  transition: color var(--tr);
+}
+.footer-legal a:hover { color: var(--gold); }
+
+/* ── Responsive ───────────────────────────────────────────── */
+@media (max-width: 1024px) {
+  .footer-main { grid-template-columns: 1fr 1fr; gap: 2.5rem; }
+  .footer-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 640px) {
+  .footer-cta-band { flex-direction: column; align-items: flex-start; }
+  .footer-main { grid-template-columns: 1fr 1fr; gap: 2rem; padding: 2.5rem 5vw; }
+  .footer-brand { grid-column: 1 / -1; }
+  .cert-bar { gap: 1rem; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 0.6rem; }
+}
+@media (max-width: 400px) {
+  .footer-main { grid-template-columns: 1fr; }
+}

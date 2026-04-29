@@ -1,0 +1,36 @@
+/* --- Mutual Fund Page Wrapper Styles --- */
+
+.mutual-fund-page-wrapper {
+  background-color: #0a0f1e; /* Core Theme Navy */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+.calculator-section-container {
+  /* Spacing between the Hero and the Calculator */
+  padding: 4rem 0 8rem 0; 
+  
+  /* Smooth gradient transition into the calculator area */
+  background: linear-gradient(to bottom, #0a0f1e 0%, #111827 100%);
+  position: relative;
+}
+
+/* Premium Gold Separator Line between Hero and Calculator */
+.calculator-section-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(201, 168, 76, 0.3), transparent);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .calculator-section-container {
+    padding: 3rem 0 5rem 0;
+  }
+}
