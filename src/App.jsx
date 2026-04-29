@@ -13,7 +13,7 @@ import About from './Page/About/About';
 import Mutul from './Page/Service/MutualFund/MutulFund';
 import TermInsurance from './Page/Service/TermInsurance/TermInsurance';
 import Retirement from './Page/Service/Retirement/Retirement';
-import Contact from './Page/ContactUs/ContactUS';
+import Contact from './Page/ContactUs/ContactUs';
 import MediClaim from './Page/Service/MediClaim/MediClam';
 import  RealEstate from "./Page/Service/RealEstate/RealEsate";
 import ChildPlan from "./Page/Service/ChildPlan/ChildPlan";
