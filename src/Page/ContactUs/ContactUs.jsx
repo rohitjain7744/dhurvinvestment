@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './ContactUS.css';
+import './ContactUs.css';
 
 /* ── Contact metadata ── */
 const CONTACT_INFO = [
