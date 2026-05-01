@@ -21,6 +21,7 @@ import PortfolioReview from './Page/Service/PortfolioReview/PortfolioReview';
 import SocialFloating from './Component/SocialFloating/SocialFloating';
 import Footer from './Component/Footer/Footer';
 import ScrollToTop from './Component/ScrollTop/ScrollTop';
+import Sip from './Page/Service/Sip/Sip';
 
 const App = () => {
   return (
@@ -49,14 +50,15 @@ const App = () => {
         {/* Dedicated Pages */}
         <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
-        <Route path="/mutual-funds" element={<Mutul />} />
-        <Route path="/term-insurance" element={<TermInsurance />} />
-        <Route path="/retirement" element={<Retirement />} />
+        <Route path="/services/mutual-funds" element={<Mutul />} />
+        <Route path="/services/term-insurance" element={<TermInsurance />} />
+        <Route path="/services/retirement" element={<Retirement />} />
         <Route path='/Contact' element={<Contact/>}/>
-        <Route path='/mediclaim' element={<MediClaim/>}/>
-        <Route path='/realestate' element={<RealEstate/>}/>
-        <Route path='/childplan' element={<ChildPlan/>}/>
-        <Route path="/Portfolio" element={<PortfolioReview/>}/>
+        <Route path='/services/mediclaim' element={<MediClaim/>}/>
+        <Route path='/services/realestate' element={<RealEstate/>}/>
+        <Route path='/services/child-plan' element={<ChildPlan/>}/>
+        <Route path="/services/portfolio-review" element={<PortfolioReview/>}/>
+        <Route path="/services/sip" element={<Sip/>}/>
         {/* Add more routes as needed */} 
 
       </Routes>

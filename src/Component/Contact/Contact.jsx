@@ -11,22 +11,58 @@ const Contact = () => {
   });
   
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false); // Naya state API loading ke liye
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // Yahan aap EmailJS ya apna backend API call add kar sakte hain
-    console.log("Form Submitted: ", formData);
-    setIsSubmitted(true);
-    
-    // Reset form after 3 seconds
-    setTimeout(() => {
-      setIsSubmitted(false);
-      setFormData({ name: '', phone: '', email: '', service: '', message: '' });
-    }, 3000);
+    setIsSubmitting(true);
+
+    // Web3Forms Payload
+    const payload = {
+      access_key: "3ad92f93-4515-48d8-8f11-24e9c554b51f", // <-- Yahan apni Web3Forms API key daalein
+      subject: `New Enquiry from ${formData.name} - ${formData.service}`, // Email ka subject
+      name: formData.name,
+      phone: formData.phone,
+      email: formData.email || "Not Provided",
+      service: formData.service,
+      message: formData.message
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        console.log("Form Submitted: ", result);
+        setIsSubmitted(true);
+        
+        // Reset form after 3 seconds
+        setTimeout(() => {
+          setIsSubmitted(false);
+          setFormData({ name: '', phone: '', email: '', service: '', message: '' });
+        }, 3000);
+      } else {
+        alert("Something went wrong while sending your message. Please try again.");
+        console.error("Web3Forms Error:", result);
+      }
+    } catch (error) {
+      console.error("Network Error:", error);
+      alert("Network error. Please check your internet connection and try again.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -64,7 +100,7 @@ const Contact = () => {
               <div className="info-icon">✉️</div>
               <div>
                 <h3>Email Us</h3>
-                <p><a href="mailto:info@dhruvinvestments.com">info@dhruvinvestments.com</a></p>
+                <p><a href="mailto:Finserv.dhruv@gmail.com">Finserv.dhruv@gmail.com</a></p>
               </div>
             </div>
           </div>
@@ -107,7 +143,9 @@ const Contact = () => {
                   <textarea name="message" rows="4" placeholder="How can we help you?" value={formData.message} onChange={handleChange} required></textarea>
                 </div>
 
-                <button type="submit" className="btn-submit">Send Message</button>
+                <button type="submit" className="btn-submit" disabled={isSubmitting}>
+                  {isSubmitting ? 'Sending...' : 'Send Message'}
+                </button>
               </form>
             )}
           </div>

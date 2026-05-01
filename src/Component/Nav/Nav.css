@@ -12,19 +12,17 @@
   --navy-light:   #1a2540;
   --gold:         #c9a84c;
   --gold-light:   #e2c47a;
-  --gold-dim:     rgba(201, 168, 76, 0.15);
+  --gold-dim:     rgba(201, 168, 76, 0.12);
   --white:        #f5f0e8;
-  --white-dim:    rgba(245, 240, 232, 0.6);
+  --white-dim:    rgba(245, 240, 232, 0.65);
   --border:       rgba(201, 168, 76, 0.2);
   --shadow:       0 8px 40px rgba(0, 0, 0, 0.5);
-  --nav-height:   72px;
+  --nav-height:   70px;
   --transition:   0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* ── Reset / Base ──────────────────────────────────────────── */
-*,
-*::before,
-*::after {
+/* ── Reset ─────────────────────────────────────────────────── */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -43,12 +41,11 @@
   background: var(--navy);
   border-bottom: 1px solid var(--border);
   box-shadow: var(--shadow);
-  backdrop-filter: blur(12px);
   font-family: 'DM Sans', sans-serif;
-  gap: 1.5rem;
+  gap: 1rem;
 }
 
-/* Subtle gold pinstripe at very top */
+/* Gold pinstripe at top */
 .navbar::before {
   content: '';
   position: absolute;
@@ -60,14 +57,30 @@
 /* ── Brand Logo ────────────────────────────────────────────── */
 .brand-logo {
   text-decoration: none;
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 10px;
+  flex-shrink: 0;
+  transition: opacity var(--transition);
+}
+
+.brand-logo:hover { opacity: 0.85; }
+
+.nav-logo-img {
+  height: 42px;
+  width: 42px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: block;
+}
+
+.brand-text-group {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   line-height: 1;
-  flex-shrink: 0;
-  transition: opacity var(--transition);
 }
-.brand-logo:hover { opacity: 0.85; }
 
 .logo-main {
   font-family: 'Cormorant Garamond', serif;
@@ -76,7 +89,6 @@
   letter-spacing: 0.06em;
   display: flex;
   align-items: baseline;
-  gap: 0;
 }
 
 .brand-blue   { color: var(--white); }
@@ -84,22 +96,21 @@
 
 .logo-sub {
   font-family: 'DM Sans', sans-serif;
-  font-size: 0.55rem;
+  font-size: 0.52rem;
   font-weight: 300;
   letter-spacing: 0.35em;
   color: var(--gold);
   text-transform: uppercase;
-  margin-top: 2px;
-  padding-left: 1px;
+  margin-top: 3px;
 }
 
-/* ── Nav Links List ────────────────────────────────────────── */
+/* ── Nav Links ─────────────────────────────────────────────── */
 .nav-links {
   display: flex;
   align-items: center;
   list-style: none;
-  gap: 0.25rem;
-  margin: 0;
+  gap: 0.2rem;
+  margin: 0 auto;
 }
 
 .nav-links > li > a,
@@ -107,7 +118,7 @@
   display: flex;
   align-items: center;
   gap: 5px;
-  padding: 0.45rem 0.9rem;
+  padding: 0.45rem 0.85rem;
   font-size: 0.875rem;
   font-weight: 400;
   letter-spacing: 0.04em;
@@ -119,12 +130,11 @@
   white-space: nowrap;
 }
 
-/* Underline hover effect */
 .nav-links > li > a::after,
 .nav-links > li > .dropdown-trigger::after {
   content: '';
   position: absolute;
-  bottom: 4px; left: 0.9rem; right: 0.9rem;
+  bottom: 4px; left: 0.85rem; right: 0.85rem;
   height: 1px;
   background: var(--gold);
   transform: scaleX(0);
@@ -143,7 +153,7 @@
   transform: scaleX(1);
 }
 
-/* Arrow icon */
+/* Arrow */
 .arrow {
   font-size: 0.6rem;
   display: inline-block;
@@ -152,17 +162,18 @@
 }
 .arrow-up { transform: rotate(-180deg); }
 
+/* Mobile-only CTA inside menu — hidden on desktop */
+.mobile-cta-item { display: none; }
+
 /* ── Dropdown ──────────────────────────────────────────────── */
-.dropdown {
-  position: relative;
-}
+.dropdown { position: relative; }
 
 .dropdown-menu {
   position: absolute;
   top: calc(100% + 12px);
   left: 50%;
   transform: translateX(-50%) translateY(-8px);
-  min-width: 220px;
+  min-width: 230px;
   background: var(--navy-mid);
   border: 1px solid var(--border);
   border-radius: 8px;
@@ -175,23 +186,20 @@
   z-index: 200;
 }
 
-/* THE INVISIBLE BRIDGE FIX - This prevents the dropdown from closing on hover gap */
+/* Invisible hover bridge */
 .dropdown-menu::after {
   content: '';
   position: absolute;
-  top: -20px; /* Covers the gap between the nav text and the dropdown box */
-  left: 0;
-  right: 0;
+  top: -20px; left: 0; right: 0;
   height: 20px;
   background: transparent;
 }
 
-/* Top notch / arrow */
+/* Arrow notch */
 .dropdown-menu::before {
   content: '';
   position: absolute;
-  top: -6px;
-  left: 50%;
+  top: -6px; left: 50%;
   transform: translateX(-50%) rotate(45deg);
   width: 10px; height: 10px;
   background: var(--navy-mid);
@@ -209,7 +217,6 @@
   display: block;
   padding: 0.55rem 1rem;
   font-size: 0.83rem;
-  font-weight: 400;
   color: var(--white-dim);
   text-decoration: none;
   border-radius: 5px;
@@ -223,15 +230,12 @@
   padding-left: 1.4rem;
 }
 
-/* Gold dot separator between items */
 .dropdown-menu li + li {
   border-top: 1px solid rgba(201, 168, 76, 0.08);
 }
 
 /* ── CTA Button ────────────────────────────────────────────── */
-.nav-actions {
-  flex-shrink: 0;
-}
+.nav-actions { flex-shrink: 0; }
 
 .btn-cta {
   display: inline-flex;
@@ -242,16 +246,17 @@
   color: var(--navy);
   font-family: 'DM Sans', sans-serif;
   font-size: 0.82rem;
-  font-weight: 500;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-decoration: none;
   text-transform: uppercase;
   border-radius: 4px;
-  border: 1px solid transparent;
+  border: none;
   position: relative;
   overflow: hidden;
   transition: box-shadow var(--transition), transform var(--transition);
   white-space: nowrap;
+  cursor: pointer;
 }
 
 .btn-cta::before {
@@ -268,95 +273,155 @@
   transform: translateY(-1px);
 }
 .btn-cta:hover::before { opacity: 1; }
-
 .btn-cta span { position: relative; z-index: 1; }
 
 /* ── Hamburger Button ──────────────────────────────────────── */
 .mobile-menu-btn {
   display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 5px;
   background: none;
   border: 1px solid var(--border);
   border-radius: 6px;
-  color: var(--gold);
-  font-size: 1.15rem;
-  width: 40px; height: 40px;
+  width: 42px;
+  height: 42px;
   cursor: pointer;
-  align-items: center;
-  justify-content: center;
-  transition: background var(--transition), border-color var(--transition);
   flex-shrink: 0;
+  padding: 8px;
+  transition: background var(--transition), border-color var(--transition);
 }
+
 .mobile-menu-btn:hover {
   background: var(--gold-dim);
   border-color: var(--gold);
 }
 
+.hamburger-line {
+  display: block;
+  width: 20px;
+  height: 1.5px;
+  background: var(--gold);
+  border-radius: 2px;
+  transition: transform 0.35s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity   0.25s ease;
+  transform-origin: center;
+}
+
+/* Animate to ✕ when open */
+.mobile-menu-btn.is-open .hamburger-line:nth-child(1) {
+  transform: translateY(6.5px) rotate(45deg);
+}
+.mobile-menu-btn.is-open .hamburger-line:nth-child(2) {
+  opacity: 0;
+  transform: scaleX(0);
+}
+.mobile-menu-btn.is-open .hamburger-line:nth-child(3) {
+  transform: translateY(-6.5px) rotate(-45deg);
+}
+
+/* ── Mobile Overlay ────────────────────────────────────────── */
+.mobile-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  top: var(--nav-height);
+  background: rgba(0, 0, 0, 0.55);
+  z-index: 998;
+  backdrop-filter: blur(2px);
+  animation: fadeIn 0.25s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 /* ── Mobile Responsive ─────────────────────────────────────── */
 @media (max-width: 900px) {
   .navbar {
-    padding: 0 1.25rem;
-    flex-wrap: wrap;
-    height: auto;
-    min-height: var(--nav-height);
+    padding: 0 1.1rem;
+    position: sticky;
+    z-index: 999;
   }
 
-  .mobile-menu-btn {
-    display: flex;
-    order: 3;
-  }
+  .mobile-menu-btn { display: flex; }
+  .mobile-overlay  { display: block; }
 
-  .nav-actions {
-    order: 2;
-  }
+  /* Hide desktop CTA on mobile — we show one inside the drawer */
+  .nav-actions { display: none; }
 
-  .brand-logo {
-    order: 1;
-  }
-
-  /* Full-screen mobile menu */
+  /* ── Slide-down Drawer ── */
   .nav-links {
-    order: 4;
-    width: 100%;
+    position: fixed;
+    top: var(--nav-height);
+    left: 0;
+    right: 0;
+    z-index: 999;
     flex-direction: column;
     align-items: stretch;
     gap: 0;
+    background: var(--navy-mid);
+    border-bottom: 1px solid var(--border);
+    list-style: none;
+    padding: 0;
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.45s cubic-bezier(0.4, 0, 0.2, 1), padding var(--transition);
-    padding: 0;
-    border-top: 0px solid var(--border);
+    transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.6);
   }
 
   .nav-links.nav-active {
-    max-height: 600px;
-    padding: 0.75rem 0 1rem;
-    border-top: 1px solid var(--border);
+    max-height: 80vh;
+    overflow-y: auto;
+    padding-bottom: 1.25rem;
   }
 
+  /* Scrollbar styling for the drawer */
+  .nav-links::-webkit-scrollbar { width: 4px; }
+  .nav-links::-webkit-scrollbar-track { background: transparent; }
+  .nav-links::-webkit-scrollbar-thumb { background: var(--border); border-radius: 4px; }
+
+  /* Each menu item */
   .nav-links > li > a,
   .nav-links > li > .dropdown-trigger {
-    padding: 0.75rem 0.5rem;
+    padding: 1rem 1.25rem;
     font-size: 0.95rem;
-    border-radius: 6px;
+    letter-spacing: 0.03em;
+    color: var(--white-dim);
+    border-radius: 0;
+    border-bottom: 1px solid rgba(201, 168, 76, 0.07);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .nav-links > li:first-child > a {
+    border-top: 1px solid rgba(201, 168, 76, 0.07);
   }
 
   .nav-links > li > a::after,
-  .nav-links > li > .dropdown-trigger::after {
-    display: none;
+  .nav-links > li > .dropdown-trigger::after { display: none; }
+
+  .nav-links > li > a:hover,
+  .nav-links > li > .dropdown-trigger:hover {
+    background: var(--gold-dim);
+    color: var(--gold-light);
+    padding-left: 1.6rem;
   }
 
-  /* Mobile dropdown */
+  /* ── Mobile Dropdown ── */
   .dropdown-menu {
     position: static;
-    transform: none;
+    transform: none !important;
     box-shadow: none;
     border: none;
     border-radius: 0;
-    background: transparent;
-    padding: 0 0 0 1rem;
-    margin-top: 0;
-    border-left: 2px solid var(--border);
-    margin-left: 0.5rem;
+    background: rgba(255,255,255,0.03);
+    padding: 0;
+    margin: 0;
+    border-left: 2px solid rgba(201, 168, 76, 0.3);
+    margin-left: 1.25rem;
     max-height: 0;
     overflow: hidden;
     opacity: 1;
@@ -364,32 +429,50 @@
     transition: max-height 0.35s cubic-bezier(0.4, 0, 0.2, 1);
   }
 
-  .dropdown-menu::before, .dropdown-menu::after { display: none; }
+  .dropdown-menu::before,
+  .dropdown-menu::after { display: none; }
 
   .dropdown-menu.show-dropdown {
-    max-height: 400px;
+    max-height: 500px;
     pointer-events: all;
-    transform: none;
   }
 
   .dropdown-menu li a {
-    padding: 0.5rem 0.75rem;
-    font-size: 0.85rem;
+    padding: 0.75rem 1rem;
+    font-size: 0.875rem;
+    color: var(--white-dim);
+    border-bottom: 1px solid rgba(201, 168, 76, 0.05);
+    border-radius: 0;
+    letter-spacing: 0.03em;
+    transition: color var(--transition), background var(--transition), padding-left var(--transition);
   }
 
   .dropdown-menu li a:hover {
-    padding-left: 1.1rem;
+    color: var(--gold-light);
+    background: var(--gold-dim);
+    padding-left: 1.4rem;
   }
 
-  /* CTA on mobile */
-  .btn-cta {
-    font-size: 0.75rem;
-    padding: 0.45rem 0.9rem;
+  /* ── Mobile CTA inside drawer ── */
+  .mobile-cta-item {
+    display: block;
+    padding: 1.25rem 1.25rem 0.25rem;
+  }
+
+  .btn-cta-mobile {
+    width: 100%;
+    justify-content: center;
+    padding: 0.85rem 1rem;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    letter-spacing: 0.1em;
   }
 }
 
+/* ── Very small screens ────────────────────────────────────── */
 @media (max-width: 400px) {
+  .navbar { padding: 0 0.85rem; }
   .logo-main { font-size: 1.45rem; }
-  .logo-sub  { font-size: 0.48rem; }
-  .btn-cta   { display: none; }
+  .logo-sub  { font-size: 0.45rem; letter-spacing: 0.25em; }
+  .nav-logo-img { height: 32px; }
 }

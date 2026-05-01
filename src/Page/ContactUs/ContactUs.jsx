@@ -12,14 +12,14 @@ const CONTACT_INFO = [
   {
     icon: '✉️',
     label: 'Email',
-    value: 'info@dhruvinvestments.com',
-    href: 'Finserv.dhruv@gmail.com',
+    value: 'Finserv.dhruv@gmail.com',
+    href: 'mailto:Finserv.dhruv@gmail.com', // Fixed mailto link
   },
   {
     icon: '📍',
     label: 'Office',
-    value: 'office No.117, kahinoor B-zone Near Vijay Sales, Chinchwad Pune-411033, India',
-    href: 'https://maps.google.com/?q=Nashik,Maharashtra',
+    value: 'Office No.117, Kahinoor B-zone Near Vijay Sales, Chinchwad Pune-411033, India',
+    href: 'https://maps.app.goo.gl/KB1dH5FsvzzPV1hR8', // Fixed broken URL
   },
   {
     icon: '🕐',
@@ -72,16 +72,53 @@ const Contact = () => {
     if (errors[name]) setErrors((prev) => ({ ...prev, [name]: '' }));
   };
 
-  const handleSubmit = (e) => {
+  // WEB3FORMS SUBMISSION LOGIC
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    
     const errs = validate(fields);
-    if (Object.keys(errs).length) { setErrors(errs); return; }
+    if (Object.keys(errs).length) { 
+      setErrors(errs); 
+      return; 
+    }
+    
     setSubmitting(true);
-    // Simulate API call — replace with your actual submission logic
-    setTimeout(() => {
+
+    // Web3Forms Payload
+    const payload = {
+      access_key: "3ad92f93-4515-48d8-8f11-24e9c554b51f", // <-- PUT YOUR SECRET KEY HERE
+      subject: `New Enquiry from ${fields.name} - ${fields.service}`, // Email Subject
+      name: fields.name,
+      phone: fields.phone,
+      email: fields.email || "Not Provided",
+      service: fields.service,
+      message: fields.message || "No additional message",
+    };
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitted(true);
+      } else {
+        alert("Something went wrong while sending your message. Please try again or contact us directly on WhatsApp.");
+        console.error("Web3Forms Error:", result);
+      }
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      alert("Network error. Please check your internet connection and try again.");
+    } finally {
       setSubmitting(false);
-      setSubmitted(true);
-    }, 1600);
+    }
   };
 
   return (
@@ -153,7 +190,7 @@ const Contact = () => {
             <a href="tel:+918626062667" className="social-btn">
               📞 Call Direct
             </a>
-            <a href="mailto:info@dhruvinvestments.com" className="social-btn">
+            <a href="mailto:Finserv.dhruv@gmail.com" className="social-btn">
               ✉ Email Us
             </a>
           </div>
@@ -272,13 +309,19 @@ const Contact = () => {
       <div className="map-strip">
         <span className="map-label">— Find Us</span>
         <div className="map-frame">
+          {/* Note: Yeh abhi Nashik point kar raha hai. Agar aapko Pune/Chinchwad ka theek map chahiye, toh is iframe src ko update kar lijiye. */}
           <iframe
-            title="Dhruv Investments Location — Nashik"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d238052.46255987668!2d73.63621565!3d19.9974533!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bddeba5c3b18dad%3A0x9f60e42a282a8d23!2sNashik%2C%20Maharashtra!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
-            allowFullScreen=""
-            loading="lazy"
-            referrerPolicy="no-referrer-when-downgrade"
-          />
+  title="Dhruv Investments Location"
+  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6842.649729176043!2d73.79028287808228!3d18.633140900000004!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2b84c698dd341%3A0x9f726affbe99cc42!2sKohinoor%20B%20Zone%20Building%20-%20Pimpri%20Chincwad!5e1!3m2!1sen!2sin!4v1777633213954!5m2!1sen!2sin"
+  width="100%" 
+  height="450"
+  style={{ border: 0 }}
+  allowFullScreen={true}
+  loading="lazy"
+  referrerPolicy="no-referrer-when-downgrade"
+/>
+         
+          
         </div>
       </div>
 

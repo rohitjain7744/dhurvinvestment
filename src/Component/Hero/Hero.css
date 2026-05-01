@@ -56,18 +56,10 @@
 .bg-img-4 { animation-delay: calc(var(--slide-dur) * 3); }
 
 /* Financial / wealth themed Unsplash images */
-.bg-img-1 {
-  background-image: url('../../assets/bg1.jpg');
-}
-.bg-img-2 {
-  background-image: url('../../assets/bg2.jpg');
-}
-.bg-img-3 {
-  background-image: url('../../assets/bg3.jpg');
-}
-.bg-img-4 {
-  background-image: url('../../assets/bg4.jpg');
-}
+.bg-img-1 { background-image: url('../../assets/bg1.jpg'); }
+.bg-img-2 { background-image: url('../../assets/bg2.jpg'); }
+.bg-img-3 { background-image: url('../../assets/bg3.jpg'); }
+.bg-img-4 { background-image: url('../../assets/bg4.jpg'); }
 
 @keyframes bgSlide {
   0%   { opacity: 0;    transform: scale(1.06); }
@@ -338,8 +330,6 @@
   color: var(--gold-light);
   background: var(--gold-dim);
 }
-
-/* Checkmark styling */
 .trust-item::before {
   content: '✦';
   color: var(--gold);
@@ -347,11 +337,23 @@
   flex-shrink: 0;
 }
 
-/* ── Mobile Responsive ─────────────────────────────────────── */
+/* ── CLEAN & UNIFIED MOBILE RESPONSIVE BLOCK ────────────────── */
 @media (max-width: 768px) {
+  
+  /* 1. Main Hero Container Alignment Fix */
+  .hero-container {
+    height: auto !important;
+    min-height: 100vh;
+    padding-top: 100px !important;    /* Navbar ke liye jagah */
+    padding-bottom: 220px !important; /* Buttons aur Trust Banner dono ke liye zaroori space */
+    justify-content: center;
+  }
+
+  /* 2. Text Content Sizing */
   .hero-content {
     padding: 0 6vw;
     max-width: 100%;
+    margin-top: 20px;
   }
 
   .hero-container::before {
@@ -362,22 +364,42 @@
     );
   }
 
-  .hero-title { font-size: clamp(2rem, 8vw, 3rem); }
+  .hero-content::before {
+    font-size: 0.65rem;
+  }
 
+  .hero-title { 
+    font-size: clamp(2rem, 8vw, 3rem) !important; 
+    line-height: 1.2;
+    margin-top: 10px;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem !important;
+    margin-bottom: 1.5rem;
+  }
+
+  /* 3. The Ultimate Button Stack Fix */
   .hero-buttons {
-    flex-direction: column;
-    gap: 0.75rem;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    width: 100%;
+    margin-bottom: 20px;
   }
 
   .btn-primary,
   .btn-secondary {
     justify-content: center;
-    width: 100%;
-    max-width: 300px;
+    width: 100% !important;
+    max-width: 100% !important; 
+    text-align: center;
+    padding: 16px 0 !important; /* Better touch target for mobile */
   }
 
   .slide-indicators { display: none; }
 
+  /* 4. Trust Banner Mobile Format */
   .trust-banner {
     flex-direction: column;
     gap: 0;
@@ -387,13 +409,12 @@
     width: 100%;
     border-right: none;
     border-bottom: 1px solid var(--gold-border);
-    padding: 0.8rem 1.5rem;
+    padding: 1rem 1.5rem;
     justify-content: flex-start;
   }
   .trust-item:last-child { border-bottom: none; }
 }
 
 @media (max-width: 480px) {
-  .hero-title { font-size: clamp(1.7rem, 7.5vw, 2.2rem); }
-  .hero-content::before { font-size: 0.65rem; }
+  .hero-title { font-size: clamp(1.8rem, 7.5vw, 2.3rem) !important; }
 }

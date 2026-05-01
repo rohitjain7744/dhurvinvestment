@@ -1,5 +1,6 @@
 import React from 'react';
 import './AboutUs.css';
+import Photo from "../../assets/Photo.jpg"
 
 const About = () => {
   return (
@@ -13,7 +14,7 @@ const About = () => {
             <div className="image-wrapper">
               {/* Replace the background color/gradient with an actual <img> tag when you have the photo */}
               <div className="founder-image-placeholder">
-                <span>Photograph of<br/>Mr. Jitendra Nikam</span>
+                <img src={Photo} alt="Mr. Jitendra Nikam" />
               </div>
               
               {/* Floating Experience Badge */}

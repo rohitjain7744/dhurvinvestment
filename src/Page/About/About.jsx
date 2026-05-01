@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './About.css';
+import Photo from "../../assets/Photo.jpg"
 
 const AboutPage = () => {
   // Simple scroll-to-top on load for a better user experience
@@ -48,10 +49,7 @@ const AboutPage = () => {
             <div className="founder-visual">
               <div className="founder-image-box">
                 {/* Replace with actual image tag later: <img src={founderImage} alt="Mr. Jitendra Nikam" /> */}
-                <div className="placeholder-content">
-                  <span className="placeholder-icon">📸</span>
-                  <span className="placeholder-text">Portrait of Mr. Nikam</span>
-                </div>
+                <img src={Photo} alt="Mr. Jitendra Nikam" />
               </div>
               <div className="decorative-element"></div>
             </div>

@@ -1,0 +1,340 @@
+/* ============================================================
+   SIP PAGE CSS - Luxury Dark Navy & Gold
+   ============================================================ */
+
+:root {
+  --sip-navy:        #0a0f1e;
+  --sip-navy-mid:    #131c30;
+  --sip-navy-light:  #1a2540;
+  --sip-gold:        #c9a84c;
+  --sip-gold-light:  #e2c47a;
+  --sip-white:       #f5f0e8;
+  --sip-white-dim:   rgba(245, 240, 232, 0.7);
+  --sip-border:      rgba(201, 168, 76, 0.2);
+}
+
+.sip-page-container {
+  background-color: var(--sip-navy);
+  color: var(--sip-white);
+  font-family: 'DM Sans', sans-serif;
+}
+
+.gold-text {
+  color: var(--sip-gold);
+  font-style: italic;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* ── 1. Hero Section ── */
+.sip-hero {
+  padding: 120px 5vw 80px;
+  background: linear-gradient(180deg, var(--sip-navy-mid) 0%, var(--sip-navy) 100%);
+  border-bottom: 1px solid var(--sip-border);
+  text-align: center;
+}
+
+.sip-hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.sip-badge {
+  display: inline-block;
+  padding: 6px 16px;
+  background: rgba(201, 168, 76, 0.1);
+  border: 1px solid var(--sip-gold);
+  color: var(--sip-gold);
+  font-size: 0.85rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  border-radius: 30px;
+  margin-bottom: 20px;
+}
+
+.sip-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  font-weight: 600;
+  margin-bottom: 20px;
+  line-height: 1.1;
+}
+
+.sip-desc {
+  font-size: 1.1rem;
+  color: var(--sip-white-dim);
+  line-height: 1.6;
+  margin-bottom: 30px;
+}
+
+/* Buttons */
+.btn-gold-solid {
+  display: inline-block;
+  padding: 14px 32px;
+  background: linear-gradient(135deg, var(--sip-gold), #a8832e);
+  color: var(--sip-navy);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.btn-gold-solid:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(201, 168, 76, 0.4);
+}
+
+.btn-outline-gold {
+  display: inline-block;
+  padding: 14px 32px;
+  background: transparent;
+  border: 1px solid var(--sip-gold);
+  color: var(--sip-gold);
+  text-decoration: none;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.btn-outline-gold:hover {
+  background: var(--sip-gold);
+  color: var(--sip-navy);
+}
+
+/* ── 2. What is SIP? ── */
+.sip-intro-section {
+  padding: 80px 5vw;
+}
+
+.sip-intro-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.sip-intro-text h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.sip-intro-text p {
+  color: var(--sip-white-dim);
+  line-height: 1.7;
+  margin-bottom: 15px;
+  font-size: 1.05rem;
+}
+
+.sip-intro-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.stat-box {
+  background: var(--sip-navy-mid);
+  border: 1px solid var(--sip-border);
+  padding: 30px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-box h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 3rem;
+  color: var(--sip-gold);
+  margin-bottom: 10px;
+}
+
+/* ── 3. Benefits Grid ── */
+.sip-benefits {
+  padding: 80px 5vw;
+  background-color: var(--sip-navy-mid);
+}
+
+.section-header h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  margin-bottom: 10px;
+}
+
+.section-header p {
+  color: var(--sip-white-dim);
+  font-size: 1.1rem;
+  margin-bottom: 50px;
+}
+
+.benefits-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.benefit-card {
+  background: var(--sip-navy);
+  border: 1px solid var(--sip-border);
+  padding: 40px 30px;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-10px);
+}
+
+.b-icon {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+}
+
+.benefit-card h3 {
+  font-size: 1.2rem;
+  margin-bottom: 15px;
+  color: var(--sip-gold-light);
+}
+
+.benefit-card p {
+  color: var(--sip-white-dim);
+  line-height: 1.6;
+  font-size: 0.95rem;
+}
+
+/* ── 4. Compounding ── */
+.sip-compounding {
+  padding: 80px 5vw;
+}
+
+.compounding-content {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.compounding-content h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  margin-bottom: 20px;
+}
+
+.compounding-content > p {
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--sip-white-dim);
+  margin-bottom: 40px;
+}
+
+.compounding-example {
+  background: var(--sip-navy-mid);
+  border: 1px dashed var(--sip-gold);
+  padding: 40px;
+  border-radius: 8px;
+  text-align: left;
+}
+
+.compounding-example h3 {
+  color: var(--sip-gold);
+  margin-bottom: 20px;
+  font-size: 1.4rem;
+}
+
+.compounding-example ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 20px;
+}
+
+.compounding-example li {
+  font-size: 1.1rem;
+  margin-bottom: 15px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.compounding-example li:last-child {
+  border-bottom: none;
+  font-size: 1.3rem;
+}
+
+.note {
+  font-size: 0.8rem;
+  color: #888;
+}
+
+/* ── 5. CTA Section ── */
+.sip-cta-section {
+  padding: 80px 5vw;
+  background: var(--sip-navy-mid);
+}
+
+.cta-box {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  background: linear-gradient(135deg, rgba(201, 168, 76, 0.1), rgba(10, 15, 30, 0.9));
+  border: 1px solid var(--sip-gold);
+  padding: 60px 40px;
+  border-radius: 12px;
+}
+
+.cta-box h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 2.2rem;
+  margin-bottom: 20px;
+}
+
+.cta-box p {
+  color: var(--sip-white-dim);
+  margin-bottom: 40px;
+  font-size: 1.1rem;
+  line-height: 1.6;
+}
+
+.cta-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ── Responsive Design ── */
+@media (max-width: 768px) {
+  .sip-intro-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .sip-hero {
+    padding: 100px 5vw 60px;
+  }
+  
+  .sip-title {
+    font-size: 2.2rem;
+  }
+  
+  .compounding-example {
+    padding: 20px;
+  }
+  
+  .cta-box {
+    padding: 40px 20px;
+  }
+  
+  .cta-buttons {
+    flex-direction: column;
+  }
+  
+  .btn-gold-solid, .btn-outline-gold {
+    width: 100%;
+  }
+}

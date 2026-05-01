@@ -69,7 +69,7 @@ const Footer = () => {
           </Link>
 
           <p className="brand-tagline">
-            Nashik's trusted financial planning practice — helping families build wealth,
+            Pune's trusted financial planning practice — helping families build wealth,
             protect income, and achieve life goals since 2008.
           </p>
 
@@ -78,7 +78,7 @@ const Footer = () => {
               <span className="bcontact-icon">📞</span>
               +91 86260 62667
             </a>
-            <a href="mailto:info@dhruvinvestments.com" className="bcontact-item">
+            <a href=" Finserv.dhruv@gmail.com" className="bcontact-item">
               <span className="bcontact-icon">✉️</span>
               Finserv.dhruv@gmail.com
             </a>
