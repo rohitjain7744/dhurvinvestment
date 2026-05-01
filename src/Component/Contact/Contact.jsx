@@ -23,7 +23,7 @@ const Contact = () => {
 
     // Web3Forms Payload
     const payload = {
-      access_key: "3ad92f93-4515-48d8-8f11-24e9c554b51f", // <-- Yahan apni Web3Forms API key daalein
+      access_key: "e31ca286-5f98-4f48-940e-c18ab98fed9d", // <-- Yahan apni Web3Forms API key daalein
       subject: `New Enquiry from ${formData.name} - ${formData.service}`, // Email ka subject
       name: formData.name,
       phone: formData.phone,
