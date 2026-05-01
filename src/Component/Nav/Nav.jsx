@@ -58,7 +58,7 @@ const Navbar = () => {
               <span className="brand-yellow">₹</span>
               <span className="brand-blue">UV</span>
             </div>
-            <span className="logo-sub">Investments</span>
+            <span className="logo-sub">I  n v e s t m e n t s</span>
           </div>
         </Link>
         {/* ⚠️ If logo still stacks: find & delete the SECOND .brand-logo block

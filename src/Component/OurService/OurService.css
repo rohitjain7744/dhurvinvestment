@@ -228,3 +228,44 @@
 @media (max-width: 380px) {
   .services-grid { grid-template-columns: 1fr; }
 }
+/* ── Read More Button Styling ── */
+.read-more-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 20px;
+  color: #c9a84c; /* Gold color */
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  transition: color 0.3s ease;
+}
+
+.read-more-btn .arrow {
+  transition: transform 0.3s ease;
+}
+
+/* Hover Effect: Text bright hoga aur arrow thoda aage jayega */
+.read-more-btn:hover {
+  color: #e2c47a; /* Lighter gold */
+}
+
+.read-more-btn:hover .arrow {
+  transform: translateX(5px);
+}
+
+/* Ensure card has flex direction so button always stays at the bottom */
+.service-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+/* Pushes the button to the bottom if text descriptions are of different lengths */
+.service-desc {
+  flex-grow: 1; 
+  margin-bottom: 0;
+} 

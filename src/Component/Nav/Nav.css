@@ -92,12 +92,12 @@
 }
 
 .brand-blue   { color: var(--white); }
-.brand-yellow { color: var(--gold); font-size: 1.5rem; margin: 0 1px; }
+.brand-yellow { color: var(--gold); font-size: 2.5rem; margin: 0 1px; }
 
 .logo-sub {
   font-family: 'DM Sans', sans-serif;
   font-size: 0.52rem;
-  font-weight: 300;
+  font-weight: 600;
   letter-spacing: 0.35em;
   color: var(--gold);
   text-transform: uppercase;

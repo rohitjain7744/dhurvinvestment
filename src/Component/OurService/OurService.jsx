@@ -1,19 +1,20 @@
 import React from 'react';
+import { Link } from 'react-router-dom'; // Link import karna zaroori hai
 import './OurService.css';
 
 const Services = () => {
-  // Array of services based on the business card
+  // Array of services (Added 'path' to each object)
   const serviceList = [
-    { title: 'Mutual Fund', desc: 'Diversified portfolios managed by experts for long-term wealth growth.', icon: '📈' },
-    { title: 'SIP', desc: 'Systematic Investment Plans for disciplined, steady wealth accumulation.', icon: '🔄' },
-    { title: 'Real Estate', desc: 'Strategic property investments for capital appreciation and passive income.', icon: '🏢' },
-    { title: 'Term Insurance', desc: 'Pure life cover to secure your family’s financial future against uncertainties.', icon: '🛡️' },
-    { title: 'Mediclaim', desc: 'Comprehensive health insurance solutions to cover unexpected medical emergencies.', icon: '🏥' },
-    { title: 'Goal Setting', desc: 'Structured financial planning to help you achieve your specific life milestones.', icon: '🎯' },
-    { title: 'Retirement / Pension', desc: 'Strategic planning to ensure a comfortable, independent, and secure retired life.', icon: '🌴' },
-    { title: 'Child Education', desc: 'Dedicated funds planning to guarantee the best higher education for your children.', icon: '🎓' },
-    { title: 'Child Marriage', desc: 'Early financial preparation for significant and joyous family milestones.', icon: '💍' },
-    { title: 'Investment Review', desc: 'Periodic assessment and rebalancing to ensure your portfolio stays on track.', icon: '📊' }
+    { title: 'Mutual Fund', desc: 'Diversified portfolios managed by experts for long-term wealth growth.', icon: '📈', path: '/services/mutual-funds' },
+    { title: 'SIP', desc: 'Systematic Investment Plans for disciplined, steady wealth accumulation.', icon: '🔄', path: '/services/mutual-funds' },
+    { title: 'Real Estate', desc: 'Strategic property investments for capital appreciation and passive income.', icon: '🏢', path: '/services/real-estate' },
+    { title: 'Term Insurance', desc: 'Pure life cover to secure your family’s financial future against uncertainties.', icon: '🛡️', path: '/services/term-insurance' },
+    { title: 'Mediclaim', desc: 'Comprehensive health insurance solutions to cover unexpected medical emergencies.', icon: '🏥', path: '/services/mediclaim' },
+    { title: 'Goal Setting', desc: 'Structured financial planning to help you achieve your specific life milestones.', icon: '🎯', path: '/services' },
+    { title: 'Retirement / Pension', desc: 'Strategic planning to ensure a comfortable, independent, and secure retired life.', icon: '🌴', path: '/services/retirement' },
+    { title: 'Child Education', desc: 'Dedicated funds planning to guarantee the best higher education for your children.', icon: '🎓', path: '/services/child-plan' },
+    { title: 'Child Marriage', desc: 'Early financial preparation for significant and joyous family milestones.', icon: '💍', path: '/services/child-plan' },
+    { title: 'Investment Review', desc: 'Periodic assessment and rebalancing to ensure your portfolio stays on track.', icon: '📊', path: '/services/portfolio-review' }
   ];
 
   return (
@@ -32,6 +33,11 @@ const Services = () => {
             <div className="service-icon">{service.icon}</div>
             <h3 className="service-title">{service.title}</h3>
             <p className="service-desc">{service.desc}</p>
+            
+            {/* ── Read More Button ── */}
+            <Link to={service.path} className="read-more-btn">
+              Explore Services <span className="arrow">→</span>
+            </Link>
           </div>
         ))}
       </div>

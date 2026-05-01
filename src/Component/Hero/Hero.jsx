@@ -32,7 +32,7 @@ const Hero = () => {
         </p>
 
         <div className="hero-buttons">
-          <a href="#services" className="btn-primary">
+          <a href="/services" className="btn-primary">
             <span>Explore Services</span>
           </a>
           <a href="#contact" className="btn-secondary">
