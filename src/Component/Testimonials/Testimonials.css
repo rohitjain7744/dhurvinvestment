@@ -1,7 +1,21 @@
+/* ==========================================================
+   TESTIMONIALS SECTION - Premium Dark Navy & Gold
+   ========================================================== */
+
+:root {
+  --testi-bg: #0a0f1e;
+  --testi-card-bg: #131c30;
+  --gold: #c9a84c;
+  --gold-light: #e2c47a;
+  --text-white: #f5f0e8;
+  --text-dim: rgba(245, 240, 232, 0.7);
+  --gold-border: rgba(201, 168, 76, 0.25);
+}
+
 .testimonials-section {
-  padding: 5rem 5vw;
-  background-color: #060a14; /* Slightly darker than the main navy for contrast */
-  color: #f5f0e8;
+  padding: 80px 5vw;
+  background-color: var(--testi-bg);
+  color: var(--text-white);
   font-family: 'DM Sans', sans-serif;
 }
 
@@ -10,126 +24,147 @@
   margin: 0 auto;
 }
 
-/* Header Styles */
+/* ── 1. HEADER STYLING ── */
 .testi-header {
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 60px;
 }
 
 .testi-eyebrow {
-  font-size: 0.7rem;
-  letter-spacing: 0.28em;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #c9a84c; /* Gold */
+  color: var(--gold);
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .testi-header h2 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2rem, 4vw, 3rem);
-  font-weight: 600;
-  margin: 0 0 1rem 0;
-  color: #ffffff;
+  font-size: clamp(2.5rem, 4vw, 3.2rem);
+  margin-bottom: 15px;
+  color: var(--text-white);
+  line-height: 1.2;
 }
 
 .testi-line {
   width: 60px;
   height: 2px;
-  background: linear-gradient(90deg, transparent, #c9a84c, transparent);
-  margin: 0 auto 1.5rem;
+  background: var(--gold);
+  margin: 0 auto 20px auto;
 }
 
 .testi-header p {
-  color: rgba(245, 240, 232, 0.7);
+  color: var(--text-dim);
+  font-size: 1.1rem;
   max-width: 600px;
   margin: 0 auto;
-  line-height: 1.8;
+  line-height: 1.6;
 }
 
-/* Grid Layout */
+/* ── 2. RESPONSIVE GRID (The Magic) ── */
 .testi-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 2rem;
+  /* Yeh automatically screen size ke hisaab se columns adjust karega */
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
 }
 
-/* Individual Card */
+/* ── 3. CARD STYLING ── */
 .testi-card {
-  background: #111827; /* Navy Mid */
-  border: 1px solid rgba(201, 168, 76, 0.15); /* Faint gold border */
-  border-radius: 8px;
-  padding: 2.5rem 2rem;
+  background-color: var(--testi-card-bg);
+  border: 1px solid var(--gold-border);
+  border-radius: 12px;
+  padding: 40px 30px;
   display: flex;
   flex-direction: column;
-  transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease, border-color 0.4s ease;
 }
 
 .testi-card:hover {
-  transform: translateY(-5px);
-  border-color: #c9a84c;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  transform: translateY(-8px); /* Hover par card halka sa upar uthega */
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+  border-color: var(--gold); /* Border highlight hoga */
 }
 
-/* Stars */
 .stars {
-  color: #c9a84c; /* Gold stars */
-  font-size: 1.2rem;
-  letter-spacing: 2px;
-  margin-bottom: 1.5rem;
+  color: var(--gold);
+  font-size: 1.3rem;
+  margin-bottom: 20px;
+  letter-spacing: 3px; /* Stars ke beech premium gap */
 }
 
-/* Feedback Text */
 .feedback-text {
-  font-size: 0.95rem;
-  line-height: 1.8;
-  color: rgba(245, 240, 232, 0.85);
+  color: var(--text-dim);
+  font-size: 1.05rem;
   font-style: italic;
-  flex-grow: 1; /* Pushes client info to the bottom evenly */
-  margin-bottom: 2rem;
+  line-height: 1.7;
+  margin-bottom: 30px;
+  flex-grow: 1; /* Yeh ensure karega ki saare client names ek perfect line me neeche dikhein */
 }
 
-/* Client Info at Bottom */
+/* ── 4. CLIENT INFO & AVATAR ── */
 .client-info {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-  padding-top: 1.5rem;
+  gap: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05); /* Halka sa separator */
+  padding-top: 20px;
 }
 
 .client-avatar {
-  width: 45px;
-  height: 45px;
-  background: linear-gradient(135deg, #c9a84c, #a8832e);
-  color: #0a0f1e;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, var(--gold), #a8832e); /* Gold avatar background */
+  color: var(--testi-bg); /* Dark initial letter */
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  font-weight: 700;
   border-radius: 50%;
   display: flex;
-  align-items: center;
   justify-content: center;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.5rem;
-  font-weight: bold;
+  align-items: center;
+  flex-shrink: 0;
 }
 
 .client-name {
-  margin: 0 0 0.2rem 0;
-  font-size: 1.05rem;
-  color: #ffffff;
-  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
   font-weight: 600;
+  color: var(--text-white);
+  margin-bottom: 3px;
 }
 
 .client-role {
-  font-size: 0.75rem;
-  color: rgba(245, 240, 232, 0.5);
+  font-size: 0.85rem;
+  color: var(--gold-light);
   text-transform: uppercase;
   letter-spacing: 0.05em;
 }
 
-/* Responsive */
+/* ── 5. MOBILE ADJUSTMENTS ── */
 @media (max-width: 768px) {
-  .testi-card {
-    padding: 2rem 1.5rem;
+  .testimonials-section {
+    padding: 60px 5vw;
   }
+  
+  .testi-card {
+    padding: 30px 20px; /* Mobile par card ki padding thodi kam ki hai */
+  }
+  
+  .feedback-text {
+    font-size: 1rem;
+  }
+  
+  .client-avatar {
+    width: 45px;
+    height: 45px;
+    font-size: 1.4rem;
+  }
+}
+
+.testi-grid {
+  display: grid;
+  /* 320px ki jagah 280px kar dein choti screens ke liye */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
 }

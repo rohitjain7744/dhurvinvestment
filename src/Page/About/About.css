@@ -13,6 +13,7 @@
   --font-body: 'DM Sans', sans-serif;
 }
 
+
 .about-page-wrapper {
   background-color: var(--about-navy);
   color: var(--about-white);
@@ -475,4 +476,45 @@
   .hero-content-side { padding: 4rem 5vw; }
   .hero-title { font-size: 2.8rem; }
   .values-grid { grid-template-columns: 1fr; }
+}
+
+/* --- Founder Image Responsive Fix --- */
+
+.founder-visual {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.founder-image-box {
+  width: 100%;
+  max-width: 400px; /* Desktop par maximum kitni badi image dikhani hai */
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px; /* Image ke corners ko thoda round karne ke liye */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Premium 3D shadow effect */
+  border: 1px solid rgba(201, 168, 76, 0.3); /* Gold border ka halka touch */
+}
+
+/* Asli jadoo yahan hai jo image ko responsive banayega */
+.founder-image-box img {
+  width: 100%;
+  height: auto; /* Aspect ratio maintain karega taaki image stretch na ho */
+  display: block; /* Image ke neeche ka extra white space hatayega */
+  object-fit: cover; /* Box ke andar image ko perfectly fit karega */
+  transition: transform 0.4s ease; /* Hover effect ke liye smooth animation */
+}
+
+/* Halka sa hover effect (Optional but premium looks) */
+.founder-image-box:hover img {
+  transform: scale(1.05); /* Mouse le jane par image thodi si badi (zoom) hogi */
+}
+
+/* Mobile Screens ke liye Adjustments */
+@media (max-width: 768px) {
+  .founder-image-box {
+    max-width: 300px; /* Mobile par image thodi choti aur compact ho jayegi */
+    margin: 0 auto 30px auto; /* Mobile par image ke neeche space dene ke liye */
+  }
 }

@@ -1,8 +1,23 @@
+/* ==========================================================
+   ABOUT US SECTION - Premium Dark Navy & Gold
+   ========================================================== */
+
+:root {
+  --about-bg: #0a0f1e;
+  --about-card-bg: #131c30;
+  --gold: #c9a84c;
+  --gold-light: #e2c47a;
+  --text-white: #f5f0e8;
+  --text-dim: rgba(245, 240, 232, 0.7);
+  --gold-border: rgba(201, 168, 76, 0.25);
+}
+
 .about-section {
-  padding: 6rem 5vw;
-  background-color: #111827; /* Navy Mid - Creates contrast with Home/Contact */
-  color: #f5f0e8; /* Theme White */
+  padding: 80px 5vw;
+  background-color: var(--about-bg);
+  color: var(--text-white);
   font-family: 'DM Sans', sans-serif;
+  overflow-x: hidden; /* Prevents horizontal scroll on mobile */
 }
 
 .about-container {
@@ -10,210 +25,228 @@
   margin: 0 auto;
 }
 
-/* Grid Layout */
 .about-grid {
   display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 5rem;
+  grid-template-columns: 1fr 1.2fr; /* Image takes slightly less space than text */
+  gap: 60px;
   align-items: center;
-  margin-bottom: 5rem;
+  margin-bottom: 60px;
 }
 
-/* --- Left Side: Visuals --- */
+/* ── 1. RESPONSIVE & PREMIUM IMAGE STYLING ── */
 .about-visual {
-  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .image-wrapper {
   position: relative;
-  border-radius: 12px;
-  padding: 1rem;
-  border: 1px solid rgba(201, 168, 76, 0.25);
-  background: rgba(10, 15, 30, 0.5);
+  width: 100%;
+  max-width: 420px; /* Limits how big the image gets on large screens */
+  margin: 0 auto;
 }
 
 .founder-image-placeholder {
   width: 100%;
-  aspect-ratio: 3/4;
-  background: linear-gradient(135deg, #1a2540, #0a0f1e);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: rgba(245, 240, 232, 0.4);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 1.2rem;
-  border: 1px dashed rgba(201, 168, 76, 0.4);
+  aspect-ratio: 4 / 5; /* Creates a perfect professional portrait shape */
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--gold-border);
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4); /* Premium depth */
+  background-color: var(--about-card-bg);
 }
 
+/* The magic that keeps the image looking good */
+.founder-image-placeholder img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover; /* Prevents stretching or squishing */
+  object-position: center top; /* Focuses on the face/upper body */
+  transition: transform 0.5s ease;
+}
+
+.founder-image-placeholder:hover img {
+  transform: scale(1.05); /* Smooth hover zoom */
+}
+
+/* ── 2. FLOATING BADGE STYLING ── */
 .experience-badge {
   position: absolute;
   bottom: -20px;
   right: -20px;
-  background: linear-gradient(135deg, #c9a84c, #a8832e);
-  color: #0a0f1e;
-  padding: 1.5rem;
-  border-radius: 50%;
-  text-align: center;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, var(--gold), #a8832e);
+  padding: 20px 25px;
+  border-radius: 8px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
   display: flex;
-  flex-direction: column;
-  justify-content: center;
   align-items: center;
-  width: 130px;
-  height: 130px;
-  border: 4px solid #111827; /* Matches section background */
+  gap: 12px;
+  z-index: 2;
+  border: 4px solid var(--about-bg); /* Creates a cutout effect */
 }
 
 .badge-number {
-  font-size: 2.2rem;
-  font-weight: 700;
-  line-height: 1;
   font-family: 'Cormorant Garamond', serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--about-bg);
+  line-height: 1;
 }
 
 .badge-text {
-  font-size: 0.75rem;
+  color: var(--about-bg);
+  font-size: 0.9rem;
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-top: 4px;
+  line-height: 1.2;
 }
 
-/* --- Right Side: Content --- */
+/* ── 3. CONTENT STYLING ── */
 .about-eyebrow {
-  font-size: 0.7rem;
-  letter-spacing: 0.28em;
+  font-size: 0.85rem;
+  letter-spacing: 0.2em;
   text-transform: uppercase;
-  color: #c9a84c; /* Gold */
+  color: var(--gold);
   display: block;
-  margin-bottom: 1rem;
+  margin-bottom: 10px;
 }
 
 .about-content h2 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(2.2rem, 4vw, 3.5rem);
-  font-weight: 600;
-  margin: 0 0 1rem 0;
-  color: #ffffff;
-  line-height: 1.1;
+  font-size: clamp(2.2rem, 4vw, 3rem);
+  margin-bottom: 10px;
+  line-height: 1.2;
 }
 
 .about-line {
   width: 60px;
   height: 2px;
-  background: linear-gradient(90deg, #c9a84c, transparent);
-  margin: 0 0 1.5rem 0;
+  background: var(--gold);
+  margin-bottom: 20px;
 }
 
 .about-role {
-  color: #e2c47a; /* Light Gold */
-  font-size: 1.1rem;
+  color: var(--gold-light);
+  font-size: 1.2rem;
   font-weight: 400;
-  margin-bottom: 1.5rem;
+  margin-bottom: 25px;
   letter-spacing: 0.05em;
 }
 
 .about-bio {
-  color: rgba(245, 240, 232, 0.8);
-  line-height: 1.8;
-  margin-bottom: 1.5rem;
-  font-size: 1rem;
+  color: var(--text-dim);
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
 }
 
 .about-highlights {
   list-style: none;
   padding: 0;
-  margin-top: 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+  margin-top: 30px;
 }
 
 .about-highlights li {
   display: flex;
   align-items: flex-start;
-  gap: 1rem;
-  color: rgba(245, 240, 232, 0.9);
-  font-size: 0.95rem;
-  line-height: 1.6;
+  gap: 12px;
+  margin-bottom: 15px;
+  font-size: 1rem;
+  color: var(--text-white);
 }
 
 .check-icon {
-  color: #c9a84c;
+  color: var(--gold);
   font-size: 1.1rem;
   margin-top: 2px;
 }
 
-/* --- Bottom Section: Stats --- */
+.about-highlights strong {
+  color: var(--gold-light);
+  font-weight: 500;
+}
+
+/* ── 4. STATS SECTION ── */
 .about-stats {
-  background: #131c30; /* Navy Card */
-  border: 1px solid rgba(201, 168, 76, 0.15);
-  border-radius: 12px;
-  padding: 3rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 2rem;
+  background: var(--about-card-bg);
+  padding: 40px 60px;
+  border-radius: 12px;
+  border: 1px solid var(--gold-border);
 }
 
 .stat-item {
   text-align: center;
-  flex: 1;
-  min-width: 150px;
 }
 
 .stat-item h3 {
   font-family: 'Cormorant Garamond', serif;
-  font-size: 3rem;
-  color: #c9a84c;
-  margin: 0 0 0.5rem 0;
-  line-height: 1;
+  font-size: 2.5rem;
+  color: var(--gold);
+  margin-bottom: 5px;
 }
 
 .stat-item p {
-  color: rgba(245, 240, 232, 0.6);
-  font-size: 0.85rem;
+  color: var(--text-dim);
+  font-size: 0.9rem;
   text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin: 0;
+  letter-spacing: 0.05em;
 }
 
 .stat-divider {
   width: 1px;
-  height: 60px;
-  background: linear-gradient(to bottom, transparent, rgba(201, 168, 76, 0.3), transparent);
+  height: 50px;
+  background: var(--gold-border);
 }
 
-/* --- Responsive --- */
+/* ── 5. MOBILE RESPONSIVENESS ── */
 @media (max-width: 992px) {
   .about-grid {
-    grid-template-columns: 1fr;
-    gap: 4rem;
+    grid-template-columns: 1fr; /* Stacks image and text vertically */
+    gap: 50px;
   }
   
   .image-wrapper {
-    max-width: 500px;
-    margin: 0 auto;
+    max-width: 350px;
+    margin-bottom: 20px;
   }
-  
+
+  /* Moves badge slightly inward so it doesn't break the screen width */
   .experience-badge {
     bottom: -15px;
-    right: 0;
+    right: 10px; 
+  }
+
+  .about-stats {
+    flex-wrap: wrap;
+    gap: 30px;
+    padding: 30px;
+    justify-content: center;
+  }
+
+  .stat-item {
+    width: 40%; /* 2 items per row */
+  }
+
+  .stat-divider {
+    display: none; /* Hide dividers on mobile */
   }
 }
 
 @media (max-width: 768px) {
-  .about-stats {
-    flex-direction: column;
-    padding: 2rem;
+  .experience-badge {
+    padding: 15px 20px;
+    right: 5px;
   }
   
-  .stat-divider {
-    width: 60px;
-    height: 1px;
-    background: linear-gradient(to right, transparent, rgba(201, 168, 76, 0.3), transparent);
+  .badge-number { font-size: 2.2rem; }
+  .badge-text { font-size: 0.8rem; }
+
+  .stat-item {
+    width: 100%; /* 1 item per row on very small screens */
   }
 }
