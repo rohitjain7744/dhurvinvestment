@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import './About.css';
-import Photo from "../../assets/Photo.jpg"
+import Photo from "../../assets/photo.jpg"
 
 const AboutPage = () => {
   // Simple scroll-to-top on load for a better user experience
